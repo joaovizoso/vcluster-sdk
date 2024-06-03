@@ -27,7 +27,6 @@ jobs:
         echo $version
 
     - name: Set directory
-      id: extract_version
       run: |
         cd examples/import-secrets
 
