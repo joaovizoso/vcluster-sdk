@@ -32,7 +32,9 @@ jobs:
         ls
 
     - name: Build Docker image
-      run: docker build -t ghcr.io/${{ github.repository_owner }}/examples/import-secrets:${{ steps.extract_version.outputs.version }} -f Dockerfile .
+      run: |
+        docker build . -f Dockerfile -t ghcr.io/${{ github.repository_owner }}/examples/import-secrets:${{ steps.extract_version.outputs.version }}
     
     - name: Push Docker image to GitHub Container Registry
-      run: docker push ghcr.io/${{ github.repository_owner }}/examples/import-secrets:${{ steps.extract_version.outputs.version }}
+      run: |
+        docker push ghcr.io/${{ github.repository_owner }}/examples/import-secrets:${{ steps.extract_version.outputs.version }}
