@@ -1,9 +1,9 @@
-name: Publish Helm Chart to GHCR
+name: Publish Docker image to GHCR
 
 on:
   push:
     tags:
-      - 'kit-ar/pub/v*.*.*'
+      - 'kit-ar/v*.*.*'
 
 jobs:
   build-and-publish:
