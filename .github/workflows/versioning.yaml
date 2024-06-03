@@ -26,6 +26,11 @@ jobs:
         echo "::set-output name=version::${GITHUB_REF#refs/tags/kit-ar/v}"
         echo $version
 
+    - name: Set directory
+      id: extract_version
+      run: |
+        cd examples/import-secrets
+
     - name: Build Docker image
       run: docker build -t ghcr.io/${{ github.repository_owner }}/examples/import-secrets:${{ steps.extract_version.outputs.version }} .
     
